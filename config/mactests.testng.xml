@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tests on Mac OS">
+    <parameter name="os" value="mac"/>
+    <test name="McPizzaTests">
+        <classes>
+            <class name="com.mcpizza.tests.McPizzaTests" />
+        </classes>
+    </test>
+</suite>
