@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
-    <line>
-      <![CDATA[Step 1: Launch Mc Pizza url ]]>
-    </line>
   </reporter-output>
-  <suite started-at="2022-11-15T16:54:43 IST" name="Tests on Windows OS" finished-at="2022-11-15T16:55:30 IST" duration-ms="47525">
+  <suite started-at="2022-11-15T20:10:25 IST" name="Tests on Windows OS" finished-at="2022-11-15T20:10:57 IST" duration-ms="31509">
     <groups>
     </groups>
-    <test started-at="2022-11-15T16:54:43 IST" name="McPizzaTests" finished-at="2022-11-15T16:55:30 IST" duration-ms="47525">
+    <test started-at="2022-11-15T20:10:25 IST" name="McPizzaTests" finished-at="2022-11-15T20:10:57 IST" duration-ms="31509">
       <class name="com.mcpizza.tests.McPizzaTests">
-        <test-method is-config="true" signature="BeforeClass()[pri:0, instance:com.mcpizza.tests.McPizzaTests@2805d709]" started-at="2022-11-15T16:54:43 IST" name="BeforeClass" finished-at="2022-11-15T16:54:43 IST" duration-ms="349" status="PASS">
+        <test-method is-config="true" signature="BeforeClass()[pri:0, instance:com.mcpizza.tests.McPizzaTests@4310d43]" started-at="2022-11-15T20:10:25 IST" name="BeforeClass" finished-at="2022-11-15T20:10:25 IST" duration-ms="343" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeClass -->
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.mcpizza.tests.McPizzaTests@2805d709]" started-at="2022-11-15T16:54:43 IST" name="setUp" finished-at="2022-11-15T16:55:03 IST" duration-ms="20281" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.mcpizza.tests.McPizzaTests@4310d43]" started-at="2022-11-15T20:10:25 IST" name="setUp" finished-at="2022-11-15T20:10:30 IST" duration-ms="4644" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -25,29 +22,29 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="addProductToCart()[pri:0, instance:com.mcpizza.tests.McPizzaTests@2805d709]" started-at="2022-11-15T16:55:03 IST" name="addProductToCart" finished-at="2022-11-15T16:55:28 IST" duration-ms="24504" status="FAIL">
+        <test-method signature="OrderPizza()[pri:0, instance:com.mcpizza.tests.McPizzaTests@4310d43]" started-at="2022-11-15T20:10:30 IST" name="OrderPizza" finished-at="2022-11-15T20:10:56 IST" duration-ms="25421" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//h3[small[contains(text(),'Welcome to Pizza Shoppe')]]/preceding-sibling::im"}
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='first_name']"}
   (Session info: chrome=107.0.5304.107)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.1.4', revision: '535d840ee2'
 System info: host: 'DESKTOP-91HT657', ip: '192.168.29.200', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [325428bd88d83092870d52ed899489c6, findElement {using=xpath, value=//h3[small[contains(text(),'Welcome to Pizza Shoppe')]]/preceding-sibling::im}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\dell\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:53989}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53989/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 325428bd88d83092870d52ed899489c6]]>
+Command: [4658ced3fbea526fd42ba66aae0d0781, findElement {using=xpath, value=//input[@id='first_name']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\dell\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49579}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49579/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 4658ced3fbea526fd42ba66aae0d0781]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//h3[small[contains(text(),'Welcome to Pizza Shoppe')]]/preceding-sibling::im"}
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@id='first_name']"}
   (Session info: chrome=107.0.5304.107)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
 Build info: version: '4.1.4', revision: '535d840ee2'
 System info: host: 'DESKTOP-91HT657', ip: '192.168.29.200', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [325428bd88d83092870d52ed899489c6, findElement {using=xpath, value=//h3[small[contains(text(),'Welcome to Pizza Shoppe')]]/preceding-sibling::im}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\dell\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:53989}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53989/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 325428bd88d83092870d52ed899489c6
+Command: [4658ced3fbea526fd42ba66aae0d0781, findElement {using=xpath, value=//input[@id='first_name']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 107.0.5304.107, chrome: {chromedriverVersion: 107.0.5304.62 (1eec40d3a576..., userDataDir: C:\Users\dell\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49579}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49579/devtoo..., se:cdpVersion: 107.0.5304.107, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 4658ced3fbea526fd42ba66aae0d0781
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -64,7 +61,7 @@ at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(Elemen
 at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:385)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:377)
-at com.mcpizza.tests.McPizzaTests.addProductToCart(McPizzaTests.java:19)
+at com.mcpizza.tests.McPizzaTests.OrderPizza(McPizzaTests.java:47)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -97,23 +94,20 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
-            <line>
-              <![CDATA[Step 1: Launch Mc Pizza url ]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- addProductToCart -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.mcpizza.tests.McPizzaTests@2805d709]" started-at="2022-11-15T16:55:28 IST" name="tearDown" finished-at="2022-11-15T16:55:30 IST" duration-ms="1669" status="PASS">
+        </test-method> <!-- OrderPizza -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.mcpizza.tests.McPizzaTests@4310d43]" started-at="2022-11-15T20:10:56 IST" name="tearDown" finished-at="2022-11-15T20:10:56 IST" duration-ms="526" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=addProductToCart status=FAILURE method=McPizzaTests.addProductToCart()[pri:0, instance:com.mcpizza.tests.McPizzaTests@2805d709] output=Step 1: Launch Mc Pizza url ]]]>
+                <![CDATA[[TestResult name=OrderPizza status=FAILURE method=McPizzaTests.OrderPizza()[pri:0, instance:com.mcpizza.tests.McPizzaTests@4310d43] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.mcpizza.tests.McPizzaTests@2805d709]" started-at="2022-11-15T16:55:30 IST" name="afterClass" finished-at="2022-11-15T16:55:30 IST" duration-ms="629" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.mcpizza.tests.McPizzaTests@4310d43]" started-at="2022-11-15T20:10:56 IST" name="afterClass" finished-at="2022-11-15T20:10:57 IST" duration-ms="501" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

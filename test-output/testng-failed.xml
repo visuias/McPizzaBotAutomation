@@ -8,9 +8,9 @@
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="addProductToCart"/>
           <include name="afterClass"/>
           <include name="BeforeClass"/>
+          <include name="OrderPizza"/>
         </methods>
       </class> <!-- com.mcpizza.tests.McPizzaTests -->
     </classes>
