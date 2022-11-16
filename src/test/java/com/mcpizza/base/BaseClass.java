@@ -32,7 +32,7 @@ public class BaseClass {
     {
     	extent =new ExtentReports(System.getProperty("user.dir")+"\\ExtentReportResults.html", true);
     	
-    	test= extent.startTest("Starting McPizza tests");
+    	
     }
     @BeforeMethod(alwaysRun = true)
     @SuppressWarnings("unchecked")
@@ -40,7 +40,7 @@ public class BaseClass {
     public void setUp(String os) throws Exception {
     
     	System.out.println(System.getProperty("user.dir"));
-    	
+    	test=extent.startTest("Mc Pizza Bot Test");
     	if(os.equalsIgnoreCase("linux"))
     	{
     		//Setup chrome options to run in headless mode. This is allow execution on linux and mac also

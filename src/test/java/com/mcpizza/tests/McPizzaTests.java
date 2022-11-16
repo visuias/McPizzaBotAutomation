@@ -22,32 +22,115 @@ public class McPizzaTests extends BaseClass {
 	@Test
     public void ValidateIrrelavantQuestions() throws Exception {
 		
+		//Variable initialization:
+		String response1="Couldn't be better. Living in the virtual moment. Thanks.";
+    	String response2="I live in cyberspace, for now.";
+    	String response3="Yes I am! Did I have you fooled?";
+    	String response4="I am sorry. I don't have an answer for that.";
+    	String response5="Here is an option I can help with";
+    	
     	BusinessLib bLib=new BusinessLib();
-    	bLib.LaunchUrl(url);
     	
-    	bLib.Login("Viswa", "viswa@gmail.com");
+    	//launch url
+    	if(bLib.LaunchUrl(url))
+		{
+    		test.log(LogStatus.PASS,"Mc Pizza url launched successfully  ");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Mc Pizza url launch Failed");
+		}
+    	//Login
+    	if(bLib.Login("Viswa", "viswa@gmail.com"))
+		{
+			test.log(LogStatus.PASS,"Logged in successfully");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"LogIn Failed");
+		}
     	
-    	bLib.SendTextAndVerifyResponse("How are you?", "Couldn't be better. Living in the virtual moment. Thanks.");
     	
-    	bLib.SendTextAndVerifyResponse("where do you live?", "I live in cyberspace, for now.");
-    	bLib.SendTextAndVerifyResponse("Are you a robot?", "Yes I am! Did I have you fooled?");
-    	bLib.SendTextAndVerifyResponse("Where did you get your name?", "I am sorry. I don't have an answer for that.");
-    	bLib.SendTextAndVerifyResponse("I want to order biryani", "Here is an option I can help with, based on what I understood. Can you confirm?");
+    	//Verify different responses
+    	String actual1=bLib.SendTextAndVerifyResponse("How are you?");
+    	if(actual1.equalsIgnoreCase(response1))
+		{
+    		test.log(LogStatus.PASS,"Expected response "+response1+" and Actual reponse is matched.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Expected response "+response1+" and Actual reponse"+actual1+" does not match.");
+		}
     	
+    	String actual2=bLib.SendTextAndVerifyResponse("where do you live?");
+    	if(actual2.equalsIgnoreCase(response2))
+		{
+    		test.log(LogStatus.PASS,"Expected response "+response2+" and Actual reponse is matched.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Expected response "+response2+" and Actual reponse"+actual2+" does not match.");
+		}
     	
+    
+    	String actual4=bLib.SendTextAndVerifyResponse("Where did you get your name?");
+    	if(actual4.equalsIgnoreCase(response4))
+		{
+    		test.log(LogStatus.PASS,"Expected response "+response4+" and Actual reponse is matched.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Expected response "+response4+" and Actual reponse"+actual4+" does not match.");
+		}
+    	
+    	String actual5=bLib.SendTextAndVerifyResponse("I want to order biryani");
+    	if(actual5.contains(response5))
+		{
+    		test.log(LogStatus.PASS,"Expected response "+response5+" and Actual reponse is matched.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Expected response "+response5+" and Actual reponse"+actual5+" does not match.");
+		}
     }
 	
 	@Test
     public void OrderVegThickCrustPizza() throws Exception {
     	
-		
+		String response= "Here is an option I can help with";
     	BusinessLib bLib=new BusinessLib();
-    	bLib.LaunchUrl(url);
+    	//launch url
+    	if(bLib.LaunchUrl(url))
+		{
+    		test.log(LogStatus.PASS,"Mc Pizza url launched successfully  ");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Mc Pizza url launch Failed");
+		}
+    	//Login
+    	if(bLib.Login("Viswa", "viswa@gmail.com"))
+		{
+			test.log(LogStatus.PASS,"Logged in successfully");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"LogIn Failed");
+		}
     	
-    	bLib.Login("Viswa", "viswa@gmail.com");
     	
-    	bLib.SendTextAndVerifyResponse("Pizza", "Here is an option I can help with, based on what I understood. Can you confirm?");
+    	//Verify Response
+    	if(bLib.SendTextAndVerifyResponse("Pizza").contains(response))
+		{
+    		test.log(LogStatus.PASS,"Expected response "+response+" and Actual reponse is matched.");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL,"Expected response "+response+" and Actual reponse does not match.");
+		}
     	
+    	//Order Pizza
     	bLib.OrderPizzaThickCrust("veg", "Small", "cheese");
+    	test.log(LogStatus.PASS,"Ordered Veg Cheese Pizza successfully");
     }
 }

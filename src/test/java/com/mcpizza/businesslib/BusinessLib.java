@@ -29,23 +29,23 @@ public class BusinessLib extends BaseClass {
 	
 	
 	
-	public  void LaunchUrl(String url)
+	public  boolean LaunchUrl(String url)
 	{
-		
+		boolean flag=false;
 			try {
 				driver.get(url);
 				
 				Assert.assertTrue(driver.findElement(xpath_WelcomeImage).isDisplayed());
 					
-				test.log(LogStatus.PASS,"Mc Pizza url launched successfully  ");
+				flag=true;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
+		return flag;
 	}
 	
-	public  void Login(String firstName, String email)
+	public  boolean Login(String firstName, String email)
 	{
 
     		boolean flag =false;
@@ -62,47 +62,35 @@ public class BusinessLib extends BaseClass {
 				driver.findElement(xpath_Next).click();
 				
 				flag= driver.findElement(xpath_QueryTextBox).isDisplayed();
-				if(flag)
-				{
-					test.log(LogStatus.PASS,"Logged in successfully");
-				}
-				else
-				{
-					test.log(LogStatus.FAIL,"LogIn Failed");
-				}
+				
 				Assert.assertTrue(flag);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			return flag;
 		
     	
 	}
 	
-	public void SendTextAndVerifyResponse(String text, String response)
+	public String SendTextAndVerifyResponse(String text)
 	{
+		String value=null;
 		
 			try {
 				driver.findElement(xpath_QueryTextBox).sendKeys(text);
 				driver.findElement(xpath_Send).click();
 				
-				String result= driver.findElement(By.xpath("//div[contains(@aria-label,'"+text+"')]/following-sibling::div//p")).getText();
+				value= driver.findElement(By.xpath("//div[contains(@aria-label,'"+text+"')]/following-sibling::div//p")).getText();
 				
-				if(result.equalsIgnoreCase(response))
-				{
-					test.log(LogStatus.PASS,"Verify Response to text is successful . Expected: "+response + " Actual: "+result);
-				}
-				else
-				{
-					test.log(LogStatus.FAIL,"Verify Response to text is failed . Expected: "+response + " Actual: "+result);
-				}
-
-				Assert.assertEquals(result, response);
+				
+				test.log(LogStatus.INFO,"Verify Response to text. Actual: "+value);
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			return value;
 	}
 	
 	public void OrderPizzaThickCrust(String veg, String size, String type)
@@ -124,7 +112,7 @@ public class BusinessLib extends BaseClass {
 			driver.findElement(xpath_Yes).click();
 			
 			Assert.assertTrue(driver.findElement(xpath_OrderPlaced).isDisplayed());
-			test.log(LogStatus.PASS,"Ordered "+veg+" pizza with type "+type+" and size"+size+"successfully");
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
