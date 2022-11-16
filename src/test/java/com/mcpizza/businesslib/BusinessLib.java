@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import com.mcpizza.base.BaseClass;
+import com.mcpizza.lib.Utils;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class BusinessLib extends BaseClass {
@@ -30,60 +31,88 @@ public class BusinessLib extends BaseClass {
 	
 	public  void LaunchUrl(String url)
 	{
-		try {
-			driver.get(url);
-			
-			Assert.assertTrue(driver.findElement(xpath_WelcomeImage).isDisplayed());
+		
+			try {
+				driver.get(url);
 				
-			test.log(LogStatus.PASS,"Mc Pizza url launched successfully  ");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+				Assert.assertTrue(driver.findElement(xpath_WelcomeImage).isDisplayed());
+					
+				test.log(LogStatus.PASS,"Mc Pizza url launched successfully  ");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 	}
 	
 	public  void Login(String firstName, String email)
 	{
 
-    	try {
-			driver.findElement(xpath_WelcomeImage).click();
-			driver.findElement(xpath_GetStarted).click();
+    		boolean flag =false;
+			try {
+				driver.findElement(xpath_WelcomeImage).click();
+				driver.findElement(xpath_GetStarted).click();
+				
+				
+				driver.switchTo().frame("avaamoIframe");
+				driver.findElement(xpath_FirstName).sendKeys(firstName);
+				driver.findElement(xpath_Email).sendKeys(email);
+				
+				
+				driver.findElement(xpath_Next).click();
+				
+				flag= driver.findElement(xpath_QueryTextBox).isDisplayed();
+				if(flag)
+				{
+					test.log(LogStatus.PASS,"Logged in successfully");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL,"LogIn Failed");
+				}
+				Assert.assertTrue(flag);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
-			
-			driver.findElement(xpath_FirstName).sendKeys(firstName);
-			driver.findElement(xpath_Email).click();
-			driver.findElement(xpath_Email).sendKeys(email);
-			driver.findElement(xpath_Next).click();
-			test.log(LogStatus.PASS,"Logged in successfully");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
     	
 	}
 	
 	public void SendTextAndVerifyResponse(String text, String response)
 	{
-		try {
-			driver.findElement(xpath_QueryTextBox).sendKeys(text);
-			driver.findElement(xpath_Send).click();
-			
-			String result= driver.findElement(By.xpath("//div[contains(@aria-label,'"+text+"')]/following-sibling::div//p")).getText();
-			Assert.assertEquals(result, response);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+			try {
+				driver.findElement(xpath_QueryTextBox).sendKeys(text);
+				driver.findElement(xpath_Send).click();
+				
+				String result= driver.findElement(By.xpath("//div[contains(@aria-label,'"+text+"')]/following-sibling::div//p")).getText();
+				
+				if(result.equalsIgnoreCase(response))
+				{
+					test.log(LogStatus.PASS,"Verify Response to text is successful . Expected: "+response + " Actual: "+result);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL,"Verify Response to text is failed . Expected: "+response + " Actual: "+result);
+				}
+
+				Assert.assertEquals(result, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 	
-	public void OrderPizzaThickCrust(String veg, String size)
+	public void OrderPizzaThickCrust(String veg, String size, String type)
 	{
 	
 		
 		try {
 			driver.findElement(xpath_McPizzaOrdreBtn).click();
 			driver.findElement(By.xpath("//a[text()='"+veg+"']")).click();
-			driver.findElement(By.xpath("//input[contains(@value,'cheese')]")).click();
+			driver.findElement(By.xpath("//input[contains(@value,'"+type+"')]")).click();
 			driver.findElement(xpath_SubmitBtn).click();
 			
 			Assert.assertTrue(driver.findElement(xpath_SubmitSuccess).isDisplayed());
@@ -95,6 +124,7 @@ public class BusinessLib extends BaseClass {
 			driver.findElement(xpath_Yes).click();
 			
 			Assert.assertTrue(driver.findElement(xpath_OrderPlaced).isDisplayed());
+			test.log(LogStatus.PASS,"Ordered "+veg+" pizza with type "+type+" and size"+size+"successfully");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

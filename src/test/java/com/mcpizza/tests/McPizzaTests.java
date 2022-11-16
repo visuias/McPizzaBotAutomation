@@ -21,7 +21,7 @@ public class McPizzaTests extends BaseClass {
 	
 	@Test
     public void ValidateIrrelavantQuestions() throws Exception {
-    	
+		
     	BusinessLib bLib=new BusinessLib();
     	bLib.LaunchUrl(url);
     	
@@ -40,6 +40,7 @@ public class McPizzaTests extends BaseClass {
 	@Test
     public void OrderVegThickCrustPizza() throws Exception {
     	
+		
     	BusinessLib bLib=new BusinessLib();
     	bLib.LaunchUrl(url);
     	
@@ -47,6 +48,6 @@ public class McPizzaTests extends BaseClass {
     	
     	bLib.SendTextAndVerifyResponse("Pizza", "Here is an option I can help with, based on what I understood. Can you confirm?");
     	
-    	bLib.OrderPizzaThickCrust("veg", "Small");
+    	bLib.OrderPizzaThickCrust("veg", "Small", "cheese");
     }
 }

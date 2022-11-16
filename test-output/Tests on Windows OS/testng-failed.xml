@@ -8,9 +8,10 @@
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="OrderVegThickCrustPizza"/>
           <include name="afterClass"/>
           <include name="BeforeClass"/>
-          <include name="OrderPizza"/>
+          <include name="ValidateIrrelavantQuestions"/>
         </methods>
       </class> <!-- com.mcpizza.tests.McPizzaTests -->
     </classes>
